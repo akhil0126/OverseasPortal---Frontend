@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply font-body text-navy-900 bg-slate-50 antialiased;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3 { @apply font-display; }
+
+  ::selection { @apply bg-gold-300 text-navy-900; }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-slate-100; }
+  ::-webkit-scrollbar-thumb { @apply bg-navy-200 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-navy-400; }
+}
+
+@layer components {
+  /* ── Buttons ── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-body font-600 text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-navy-700 text-white hover:bg-navy-800 focus:ring-navy-500 shadow-sm hover:shadow-md active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply btn bg-white text-navy-800 border border-navy-200 hover:bg-navy-50 focus:ring-navy-300;
+  }
+  .btn-gold {
+    @apply btn bg-gold-500 text-navy-900 hover:bg-gold-600 focus:ring-gold-400 shadow-sm font-semibold;
+  }
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-navy-700 hover:bg-navy-50;
+  }
+  .btn-sm { @apply !px-3 !py-1.5 !text-xs !rounded-lg; }
+  .btn-lg { @apply !px-7 !py-3.5 !text-base !rounded-2xl; }
+
+  /* ── Cards ── */
+  .card {
+    @apply bg-white rounded-2xl shadow-card border border-slate-100 overflow-hidden;
+  }
+  .card-hover {
+    @apply card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5;
+  }
+
+  /* ── Form fields ── */
+  .form-label {
+    @apply block text-sm font-medium text-navy-700 mb-1.5;
+  }
+  .form-input {
+    @apply w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-navy-900 text-sm placeholder-slate-400
+           focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent
+           transition-all duration-150;
+  }
+  .form-input-error {
+    @apply form-input border-red-400 focus:ring-red-400;
+  }
+  .form-error { @apply text-red-500 text-xs mt-1; }
+
+  /* ── Badges ── */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+  .badge-blue   { @apply badge bg-blue-100 text-blue-800; }
+  .badge-green  { @apply badge bg-emerald-100 text-emerald-800; }
+  .badge-gold   { @apply badge bg-gold-100 text-gold-800; }
+  .badge-red    { @apply badge bg-red-100 text-red-700; }
+  .badge-gray   { @apply badge bg-slate-100 text-slate-700; }
+  .badge-purple { @apply badge bg-purple-100 text-purple-800; }
+
+  /* ── Page wrapper ── */
+  .page-wrapper { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8; }
+  .page-title   { @apply font-display text-3xl font-700 text-navy-900 mb-1; }
+  .page-subtitle{ @apply text-slate-500 text-sm; }
+
+  /* ── Section title ── */
+  .section-title { @apply font-display text-xl font-semibold text-navy-800 mb-4; }
+
+  /* ── Divider ── */
+  .divider { @apply border-t border-slate-100 my-6; }
+
+  /* ── Table ── */
+  .table-wrapper { @apply overflow-x-auto rounded-xl border border-slate-200; }
+  .data-table    { @apply w-full text-sm text-left; }
+  .data-table thead tr { @apply bg-navy-950 text-white; }
+  .data-table thead th { @apply px-4 py-3 font-semibold text-xs uppercase tracking-wider; }
+  .data-table tbody tr { @apply border-b border-slate-100 hover:bg-slate-50 transition-colors; }
+  .data-table tbody td { @apply px-4 py-3 text-slate-700; }
+
+  /* ── Stat card ── */
+  .stat-card {
+    @apply card p-6 flex items-start gap-4;
+  }
+  .stat-icon {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0;
+  }
+
+  /* ── Sidebar nav item ── */
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 cursor-pointer;
+  }
+  .nav-item-active { @apply nav-item bg-navy-700 text-white shadow-glow; }
+  .nav-item-idle   { @apply nav-item text-navy-200 hover:bg-navy-800 hover:text-white; }
+}
+
+@layer utilities {
+  .font-600 { font-weight: 600; }
+  .font-700 { font-weight: 700; }
+  .text-balance { text-wrap: balance; }
+  .animate-in { animation: slideUp 0.35s ease both; }
+}
